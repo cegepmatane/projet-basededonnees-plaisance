@@ -1,5 +1,8 @@
 package vue;
 
+import controleur.Controleur;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
@@ -25,6 +28,14 @@ public class PanneauListe extends Region
 		
 		Button btnActionAjouterItem = new Button("Ajouter");
 		btnActionAjouterItem.setPrefSize(200, 15);
+		btnActionAjouterItem.setOnAction(new EventHandler<ActionEvent>() 
+		{
+			@Override
+			public void handle(ActionEvent event) 
+			{
+				Controleur.getInstance().actionAjouterItem();
+			}
+		});
 		vBox.getChildren().add(btnActionAjouterItem);
 		
 		panneauListeItem = new ListView<PanneauItemListe>();

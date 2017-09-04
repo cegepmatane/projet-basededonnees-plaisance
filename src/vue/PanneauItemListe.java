@@ -1,5 +1,8 @@
 package vue;
 
+import controleur.Controleur;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -26,6 +29,14 @@ public class PanneauItemListe extends Region
 		itemBoite.getChildren().add(label);
 		
 		Button btnActionModifier = new Button("Modifier");
+		btnActionModifier.setOnAction(new EventHandler<ActionEvent>() 
+		{
+			@Override
+			public void handle(ActionEvent event) 
+			{
+				Controleur.getInstance().actionModifierItem();
+			}
+		});
 		itemBoite.getChildren().add(btnActionModifier);
 		
 		this.getChildren().add(itemBoite);

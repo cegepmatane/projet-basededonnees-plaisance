@@ -10,6 +10,9 @@ public class VuePrincipale extends Application
 {
 	private PanneauHeader panneauHeader;
 	private PanneauListe panneauListe;
+	private PanneauModifierItem panneauModifierItem;
+	private BorderPane panneauPrincipale;
+	private PanneauAjouterItem panneauAjouterItem;
 	
 	@Override
 	public void start(Stage scenePrincipale)
@@ -19,7 +22,7 @@ public class VuePrincipale extends Application
 		panneauHeader = new PanneauHeader();
 		panneauListe = new PanneauListe();
 		
-		BorderPane panneauPrincipale = new BorderPane();
+		panneauPrincipale = new BorderPane();
 		
 		Scene scene = new Scene(panneauPrincipale, 400, 600);
 		
@@ -34,6 +37,27 @@ public class VuePrincipale extends Application
 		
 		scenePrincipale.setScene(scene);
 		scenePrincipale.show();
+	}
+	
+	public void construirePanneauModifierListe()
+	{
+		panneauModifierItem = new PanneauModifierItem();
+		
+		panneauPrincipale.setCenter(panneauModifierItem);
+	}
+
+	public void construirePanneauListe() 
+	{
+		panneauListe = new PanneauListe();
+		
+		panneauPrincipale.setCenter(panneauListe);
+	}
+
+	public void construirePanneauAjouterItem() 
+	{
+		panneauAjouterItem = new PanneauAjouterItem();
+		
+		panneauPrincipale.setCenter(panneauAjouterItem);
 	}
 
 }

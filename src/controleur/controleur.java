@@ -5,7 +5,6 @@ import vue.VuePrincipale;
 public class Controleur 
 {
 	protected static Controleur instance;
-	@SuppressWarnings("unused")
 	private VuePrincipale vuePrincipale = null;
 	
 	public static Controleur getInstance()
@@ -17,6 +16,21 @@ public class Controleur
 	public void setVuePrincipale(VuePrincipale vuePrincipale)
 	{
 		this.vuePrincipale = vuePrincipale;
+	}
+
+	public void actionModifierItem() 
+	{
+		this.vuePrincipale.construirePanneauModifierListe();
+	}
+
+	public void actionRetourEnArriere() 
+	{
+		this.vuePrincipale.construirePanneauListe();
+	}
+
+	public void actionAjouterItem() 
+	{
+		this.vuePrincipale.construirePanneauAjouterItem();
 	}
 	
 	
