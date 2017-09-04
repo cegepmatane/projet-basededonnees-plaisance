@@ -1,6 +1,6 @@
 package vue;
 
-import controleur.Controleur;
+import controleur.ControleurVue;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -17,7 +17,7 @@ public class VuePrincipale extends Application
 	@Override
 	public void start(Stage scenePrincipale)
 	{
-		Controleur.getInstance().setVuePrincipale(this);
+		ControleurVue.getInstance().setVuePrincipale(this);
 		
 		panneauHeader = new PanneauHeader();
 		panneauListe = new PanneauListe();

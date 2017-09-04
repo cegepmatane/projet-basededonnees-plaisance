@@ -2,14 +2,14 @@ package controleur;
 
 import vue.VuePrincipale;
 
-public class Controleur 
+public class ControleurVue 
 {
-	protected static Controleur instance;
+	protected static ControleurVue instance;
 	private VuePrincipale vuePrincipale = null;
 	
-	public static Controleur getInstance()
+	public static ControleurVue getInstance()
 	{
-		if(instance == null) instance = new Controleur();
+		if(instance == null) instance = new ControleurVue();
 		return instance;
 	}
 	

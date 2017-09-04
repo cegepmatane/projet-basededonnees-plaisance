@@ -1,6 +1,6 @@
 package vue;
 
-import controleur.Controleur;
+import controleur.ControleurVue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -33,7 +33,7 @@ public class PanneauListe extends Region
 			@Override
 			public void handle(ActionEvent event) 
 			{
-				Controleur.getInstance().actionAjouterItem();
+				ControleurVue.getInstance().actionAjouterItem();
 			}
 		});
 		vBox.getChildren().add(btnActionAjouterItem);

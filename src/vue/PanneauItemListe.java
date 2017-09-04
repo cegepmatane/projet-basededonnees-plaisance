@@ -1,6 +1,6 @@
 package vue;
 
-import controleur.Controleur;
+import controleur.ControleurVue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -34,7 +34,7 @@ public class PanneauItemListe extends Region
 			@Override
 			public void handle(ActionEvent event) 
 			{
-				Controleur.getInstance().actionModifierItem();
+				ControleurVue.getInstance().actionModifierItem();
 			}
 		});
 		itemBoite.getChildren().add(btnActionModifier);
