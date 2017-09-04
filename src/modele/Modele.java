@@ -1,5 +1,6 @@
 package modele;
 
-public class Modele {
+public class Modele 
+{
 
 }
