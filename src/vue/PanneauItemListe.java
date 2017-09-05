@@ -24,6 +24,7 @@ public class PanneauItemListe extends Region
 	private void ConstruirePanneau() 
 	{
 		itemBoite = new HBox();
+		itemBoite.setSpacing(15);
 		
 		Label label = new Label(this.nomItem);
 		itemBoite.getChildren().add(label);
@@ -38,6 +39,19 @@ public class PanneauItemListe extends Region
 			}
 		});
 		itemBoite.getChildren().add(btnActionModifier);
+
+
+		//Bouton pour supprimer un bateau contenue dans la liste
+		Button btnActionSupprimer = new Button("Supprimer");
+		btnActionSupprimer.setOnAction(new EventHandler<ActionEvent>()
+		{
+			@Override
+			public void handle(ActionEvent event)
+			{
+				ControleurVue.getInstance().actionSupprimerItem();
+			}
+		});
+		itemBoite.getChildren().add(btnActionSupprimer);
 		
 		this.getChildren().add(itemBoite);
 	}
