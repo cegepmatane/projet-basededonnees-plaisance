@@ -67,9 +67,7 @@ public class PanneauSupprimerItem extends Region {
                     System.out.println("Creating statement...");
                     stmt = conn.createStatement();
                     String sqlSupprimer;
-                    System.out.println(id);
                     sqlSupprimer = "DELETE FROM bateau WHERE idBateau= " + id;
-                    System.out.println(id);
                     stmt.executeUpdate(sqlSupprimer); //updateQuery
 
                     //STEP 6: Clean-up environment

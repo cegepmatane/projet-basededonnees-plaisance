@@ -9,7 +9,7 @@ import vue.VuePrincipale;
 public class AilePlaisance 
 {
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-	static final String DB_URL = "jdbc:mysql://localhost/portmatane";
+	static final String DB_URL = "jdbc:mysql://localhost:3306/CegepMatane";
 	
 	static final String USER = "root";
 	static final String PASS = "";
@@ -31,7 +31,7 @@ public class AilePlaisance
 		      System.out.println("Creating statement...");
 		      stmt = conn.createStatement();
 		      String sql;
-		      sql = "SELECT idArmateur, nom FROM armateur";
+		      sql = "SELECT idBateau, nom FROM bateau";
 		      ResultSet rs = stmt.executeQuery(sql);
 
 		      //STEP 5: Extract data from result set
