@@ -7,17 +7,20 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import modele.ModeleBateau;
 
 public class PanneauItemListe extends Region
 {
+	public int id;
 	private HBox itemBoite;
-	private String nomItem;
+	private ModeleBateau bateau;
 	
-	public PanneauItemListe(String nomItem)
+	public PanneauItemListe(ModeleBateau bateau)
 	{
 		super();
-		this.nomItem = nomItem;
-		
+		this.bateau = bateau;
+		this.id = bateau.getId();
+		System.out.println(this.id);
 		ConstruirePanneau();
 	}
 
@@ -26,7 +29,7 @@ public class PanneauItemListe extends Region
 		itemBoite = new HBox();
 		itemBoite.setSpacing(15);
 		
-		Label label = new Label(this.nomItem);
+		Label label = new Label(this.bateau.getNom());
 		itemBoite.getChildren().add(label);
 		
 		Button btnActionModifier = new Button("Modifier");
@@ -48,7 +51,7 @@ public class PanneauItemListe extends Region
 			@Override
 			public void handle(ActionEvent event)
 			{
-				ControleurVue.getInstance().actionSupprimerItem();
+				ControleurVue.getInstance().actionSupprimerItem(id);
 			}
 		});
 		itemBoite.getChildren().add(btnActionSupprimer);
