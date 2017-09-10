@@ -9,7 +9,7 @@ import vue.VuePrincipale;
 public class AilePlaisance 
 {
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-	static final String DB_URL = "jdbc:mysql://localhost:3306/CegepMatane";
+	static final String DB_URL = "jdbc:mysql://localhost:3306/bateaux";
 	
 	static final String USER = "root";
 	static final String PASS = "";
@@ -31,7 +31,7 @@ public class AilePlaisance
 		      System.out.println("Creating statement...");
 		      stmt = conn.createStatement();
 		      String sql;
-		      sql = "SELECT idBateau, nom FROM bateau";
+		      sql = "SELECT idBateau, nom, marque, modele, annee FROM bateau";
 		      ResultSet rs = stmt.executeQuery(sql);
 
 		      //STEP 5: Extract data from result set
@@ -39,10 +39,16 @@ public class AilePlaisance
 		         //Retrieve by column name
 		         int idBateau  = rs.getInt("idBateau");
 		         String nom = rs.getString("nom");
+				  String marque = rs.getString("marque");
+				  String modele = rs.getString("modele");
+				  int annee = rs.getInt("annee");
 
 		         //Display values
 		         System.out.print("ID: " + idBateau);
 		         System.out.println(", Nom: " + nom);
+				  System.out.println(", Marque: " + marque);
+				  System.out.println(", Modele: " + modele);
+				  System.out.println(", Annee: " + annee);
 		      }
 		      //STEP 6: Clean-up environment
 		      rs.close();

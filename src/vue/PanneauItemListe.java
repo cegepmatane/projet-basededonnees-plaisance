@@ -29,8 +29,14 @@ public class PanneauItemListe extends Region
 		itemBoite = new HBox();
 		itemBoite.setSpacing(15);
 		
-		Label label = new Label(this.bateau.getNom());
-		itemBoite.getChildren().add(label);
+		Label labelNom = new Label(this.bateau.getNom());
+		itemBoite.getChildren().add(labelNom);
+		Label labelMarque = new Label(this.bateau.getMarque());
+		itemBoite.getChildren().add(labelMarque);
+		Label labelModele = new Label(this.bateau.getModele());
+		itemBoite.getChildren().add(labelModele);
+		Label labelAnnee = new Label (Integer.toString(this.bateau.getAnnée()));
+		itemBoite.getChildren().add(labelAnnee);
 		
 		Button btnActionModifier = new Button("Modifier");
 		btnActionModifier.setOnAction(new EventHandler<ActionEvent>() 
