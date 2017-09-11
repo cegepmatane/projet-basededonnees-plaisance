@@ -1,5 +1,6 @@
 package controleur;
 
+import modele.ModeleBateau;
 import vue.VuePrincipale;
 
 public class ControleurVue 
@@ -18,9 +19,9 @@ public class ControleurVue
 		this.vuePrincipale = vuePrincipale;
 	}
 
-	public void actionModifierItem() 
+	public void actionModifierItem(ModeleBateau bateau) 
 	{
-		this.vuePrincipale.construirePanneauModifierListe();
+		this.vuePrincipale.construirePanneauModifierListe(bateau);
 	}
 
 	public void actionRetourEnArriere() 

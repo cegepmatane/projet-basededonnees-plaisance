@@ -20,7 +20,7 @@ public class PanneauAjouterItem extends Region
 	private TextField nomBateau;
 	private TextField marqueBateau;
 	private TextField modeleBateau;
-    static final String DB_URL = "jdbc:mysql://localhost/portmatane";
+    static final String DB_URL = "jdbc:mysql://localhost/portmatane?autoReconnect=true&useSSL=false";
     static final String USER = "root";
     static final String PASS = "";
 	

@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import modele.ModeleBateau;
 
 public class VuePrincipale extends Application
 {
@@ -40,9 +41,9 @@ public class VuePrincipale extends Application
 		scenePrincipale.show();
 	}
 	
-	public void construirePanneauModifierListe()
+	public void construirePanneauModifierListe(ModeleBateau bateau)
 	{
-		panneauModifierItem = new PanneauModifierItem();
+		panneauModifierItem = new PanneauModifierItem(bateau);
 		
 		panneauPrincipale.setCenter(panneauModifierItem);
 	}

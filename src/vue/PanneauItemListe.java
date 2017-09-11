@@ -45,7 +45,7 @@ public class PanneauItemListe extends Region
 			@Override
 			public void handle(ActionEvent event) 
 			{
-				ControleurVue.getInstance().actionModifierItem();
+				ControleurVue.getInstance().actionModifierItem((ModeleBateau)bateau);
 			}
 		});
 		itemBoite.getChildren().add(btnActionModifier);

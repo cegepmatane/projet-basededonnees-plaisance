@@ -17,7 +17,7 @@ public class PanneauListe extends Region
 	private ListView<PanneauItemListe> panneauListeItem;
 
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	static final String DB_URL = "jdbc:mysql://localhost:3306/portmatane";
+	static final String DB_URL = "jdbc:mysql://localhost:3306/portmatane?autoReconnect=true&useSSL=false";
 
 	static final String USER = "root";
 	static final String PASS = "";
@@ -87,6 +87,8 @@ public class PanneauListe extends Region
 				float longueur = rs.getFloat("longueur");
 				float largeur = rs.getFloat("largeur");
 				float hauteur = rs.getFloat("hauteur");
+				
+			
 				panneauListeItem.getItems().add(new PanneauItemListe(new ModeleBateau(idBateau, nom, marque, modele, annee, longueur, largeur, hauteur)));
 
 			}
