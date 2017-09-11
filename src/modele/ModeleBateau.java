@@ -6,7 +6,7 @@ public class ModeleBateau
     private String nom;
     private String marque;
     private String modele;
-    private int année;
+    private int annee;
     private float longueur;
     private  float largeur;
     private  float hauteur;
@@ -15,7 +15,7 @@ public class ModeleBateau
         this.nom = nom;
         this.marque = marque;
         this.modele = modele;
-        this.année = annee;
+        this.annee = annee;
         this.longueur = longueur;
         this.largeur = largeur;
         this.hauteur = hauteur;
@@ -50,12 +50,12 @@ public class ModeleBateau
         this.modele = modele;
     }
 
-    public int getAnnée() {
-        return année;
+    public int getAnnee() {
+        return annee;
     }
 
-    public void setAnnée(int année) {
-        this.année = année;
+    public void setAnnee(int annee) {
+        this.annee = annee;
     }
 
     public float getLongueur() {

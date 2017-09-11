@@ -15,6 +15,7 @@ public class PanneauItemListe extends Region
 	private HBox itemBoite;
 	private ModeleBateau bateau;
 	
+	
 	public PanneauItemListe(ModeleBateau bateau)
 	{
 		super();
@@ -35,7 +36,7 @@ public class PanneauItemListe extends Region
 		itemBoite.getChildren().add(labelMarque);
 		Label labelModele = new Label(this.bateau.getModele());
 		itemBoite.getChildren().add(labelModele);
-		Label labelAnnee = new Label (Integer.toString(this.bateau.getAnnée()));
+		Label labelAnnee = new Label (Integer.toString(this.bateau.getAnnee()));
 		itemBoite.getChildren().add(labelAnnee);
 		
 		Button btnActionModifier = new Button("Modifier");
