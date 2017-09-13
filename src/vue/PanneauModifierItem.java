@@ -92,7 +92,7 @@ public class PanneauModifierItem extends Region
                     String sqlModifier;
                     
                     sqlModifier = "UPDATE bateau SET nom='" + nomBateau.getText() + "', marque='" + marqueBateau.getText() + "', modele='" + modeleBateau.getText() + "' WHERE nom= '" + bateau.getNom() + "'";
-                    System.out.println(sqlModifier);
+                    //System.out.println(sqlModifier);
                     stmt.executeUpdate(sqlModifier); //updateQuery
 
                     //STEP 6: Clean-up environment

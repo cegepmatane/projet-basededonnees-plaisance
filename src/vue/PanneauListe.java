@@ -1,4 +1,4 @@
-package vue;
+	package vue;
 
 import controleur.ControleurVue;
 import javafx.event.ActionEvent;
@@ -29,7 +29,7 @@ public class PanneauListe extends Region
 		ConstruirePanneau();
 	}
 
-	private void ConstruirePanneau() 
+	private void ConstruirePanneau() 	
 	{
 		VBox vBox = new VBox();
 		vBox.setPadding(new Insets(10));
