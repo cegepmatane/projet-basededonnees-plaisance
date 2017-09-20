@@ -34,9 +34,9 @@ public class ControleurVue
 		this.vuePrincipale.construirePanneauAjouterItem();
 	}
 
-	public void actionSupprimerItem(int id)
+	public void actionSupprimerItem(ModeleBateau bateau)
 	{
-		this.vuePrincipale.construirePanneauSupprimerItem(id);
+		this.vuePrincipale.construirePanneauSupprimerItem(bateau);
 	}
 	
 	

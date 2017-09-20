@@ -8,21 +8,25 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
+import modele.ModeleBateau;
 
 import java.sql.*;
 
-public class PanneauSupprimerItem extends Region {
+public class PanneauSupprimerItem extends Region 
+{
 
-    private int id;
+    private ModeleBateau bateau;
     static final String DB_URL = "jdbc:mysql://localhost:3306/portmatane?autoReconnect=true&useSSL=false";
 
     static final String USER = "root";
     static final String PASS = "";
 
-    public PanneauSupprimerItem(int id) {
+    public PanneauSupprimerItem(ModeleBateau bateau) 
+    {
         super();
+        this.bateau = bateau;
+        
         construirePanneau();
-        this.id = id;
     }
 
     private void construirePanneau()
@@ -32,7 +36,7 @@ public class PanneauSupprimerItem extends Region {
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
 
-        Label labelTitreModifierItem = new Label("Supprimer");
+        Label labelTitreSupprimerItem = new Label("Supprimer bateau " + bateau.getNom());
 
         Button btnActionRetourEnArriere = new Button("Annuler");
         btnActionRetourEnArriere.setOnAction(new EventHandler<ActionEvent>()
@@ -67,7 +71,7 @@ public class PanneauSupprimerItem extends Region {
                     System.out.println("Creating statement...");
                     stmt = conn.createStatement();
                     String sqlSupprimer;
-                    sqlSupprimer = "DELETE FROM bateau WHERE idBateau= " + id;
+                    sqlSupprimer = "DELETE FROM bateau WHERE idBateau= " + bateau.getId();
                     stmt.executeUpdate(sqlSupprimer); //updateQuery
 
                     //STEP 6: Clean-up environment
@@ -83,7 +87,7 @@ public class PanneauSupprimerItem extends Region {
             }
         });
 
-        grid.add(labelTitreModifierItem, 0, 0);
+        grid.add(labelTitreSupprimerItem, 0, 0);
         grid.add(btnActionRetourEnArriere, 0, 1);
         grid.add(BtnActionSauvegardeeModification, 2, 1);
 
