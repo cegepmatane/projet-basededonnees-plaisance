@@ -18,10 +18,10 @@ public class PanneauModifierItem extends Region
 	private TextField nomBateau;
 	private TextField marqueBateau;
 	private TextField modeleBateau;
-    static final String DB_URL = "jdbc:mysql://localhost:3306/portmatane?autoReconnect=true&useSSL=false";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/test?autoReconnect=true&useSSL=false"; //A changer selon table
 
     static final String USER = "root";
-    static final String PASS = "";
+    static final String PASS = "maxime";
 	
 	public PanneauModifierItem(ModeleBateau bateau)
 	{
