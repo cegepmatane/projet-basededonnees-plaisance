@@ -1,10 +1,5 @@
 package vue;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 import controleur.ControleurVue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -14,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
+import modele.BateauDAO;
 import modele.ModeleBateau;
 
 public class PanneauModifierItem extends Region
@@ -71,39 +67,17 @@ public class PanneauModifierItem extends Region
 		Button BtnActionSauvegardeeModification = new Button("Sauvegarde");
 		BtnActionSauvegardeeModification.setOnAction(new EventHandler<ActionEvent>() 
 		{
-			//TODO: Mettre ds DAO
-			
 			@Override
 			public void handle(ActionEvent event) 
 			{
-				Connection conn = null;
-                Statement stmt = null;
-                try {
-                    //STEP 2: Register JDBC driver
-                    Class.forName("com.mysql.jdbc.Driver");
-
-                    //STEP 3: Open a connection
-                    System.out.println("Connecting to database...");
-                    conn = DriverManager.getConnection(DB_URL, USER, PASS);
-
-                    //STEP 4: Execute a query
-                    System.out.println("Creating statement...");
-                    stmt = conn.createStatement();
-                    String sqlModifier;
-                    
-                    sqlModifier = "UPDATE bateau SET nom='" + nomBateau.getText() + "', marque='" + marqueBateau.getText() + "', modele='" + modeleBateau.getText() + "' WHERE nom= '" + bateau.getNom() + "'";
-                    //System.out.println(sqlModifier);
-                    stmt.executeUpdate(sqlModifier); //updateQuery
-
-                    //STEP 6: Clean-up environment
-                    //rs.close();
-                    stmt.close();
-                    conn.close();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+				//"UPDATE bateau SET nom='" + nomBateau.getText() + "', marque='" + marqueBateau.getText() + "', modele='" + modeleBateau.getText() + "' WHERE nom= '" + bateau.getNom() + "'";
+				
+				bateau.setNom(nomBateau.getText());
+				bateau.setMarque(marqueBateau.getText());
+				bateau.setModele(modeleBateau.getText());
+				
+				BateauDAO.getInstance().modifierBateau(bateau);
+				
                 ControleurVue.getInstance().actionRetourEnArriere();
 			}
 		});

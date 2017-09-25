@@ -21,7 +21,7 @@ public class PanneauItemListe extends Region
 		super();
 		this.bateau = bateau;
 		this.id = bateau.getId();
-		System.out.println(this.id);
+		//System.out.println(this.id);
 		ConstruirePanneau();
 	}
 

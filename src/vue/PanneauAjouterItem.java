@@ -1,10 +1,5 @@
 package vue;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 import controleur.ControleurVue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -14,15 +9,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
+import modele.BateauDAO;
+import modele.ModeleBateau;
 
 public class PanneauAjouterItem extends Region
 {
 	private TextField nomBateau;
 	private TextField marqueBateau;
 	private TextField modeleBateau;
-    static final String DB_URL = "jdbc:mysql://localhost/portmatane?autoReconnect=true&useSSL=false";
-    static final String USER = "root";
-    static final String PASS = "";
 	
 	public PanneauAjouterItem()
 	{
@@ -63,32 +57,10 @@ public class PanneauAjouterItem extends Region
 			@Override
 			public void handle(ActionEvent event) 
 			{
-				Connection conn = null;
-                Statement stmt = null;
-                try {
-                    Class.forName("com.mysql.jdbc.Driver");
-                    conn = DriverManager.getConnection(DB_URL, USER, PASS);
-
-                    System.out.print(nomBateau.getText());
-                    
-                    stmt = conn.createStatement();
-                    String sqlAjouter;
-                    sqlAjouter = "INSERT INTO `bateau` (`idBateau`, `nom`, `marque`, `modele`, `annee`, `longueur`, `largeur`, `hauteur`) VALUES (NULL, '"+ nomBateau.getText() + "' , '"+ marqueBateau.getText() + "', '"+ modeleBateau.getText() + "', '2017-09-11', '24', '24', '24');";
-                    stmt.executeUpdate(sqlAjouter); 
-                    
-                    stmt.close();
-                    conn.close();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-
-                try {
-                    ControleurVue.getInstance().actionRetourEnArriere();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+				//sqlAjouter = "INSERT INTO `bateau` (`idBateau`, `nom`, `marque`, `modele`, `annee`, `longueur`, `largeur`, `hauteur`) VALUES (NULL, '"+ nomBateau.getText() + "' , '"+ marqueBateau.getText() + "', '"+ modeleBateau.getText() + "', '2017-09-11', '24', '24', '24');";
+                BateauDAO.getInstance().ajouterBateau(new ModeleBateau(-1, nomBateau.getText(), marqueBateau.getText(), modeleBateau.getText(), 2017, 24, 24, 24));
+				
+				ControleurVue.getInstance().actionRetourEnArriere();
 			}
 		});
 		
