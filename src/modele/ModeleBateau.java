@@ -81,4 +81,19 @@ public class ModeleBateau
     public void setHauteur(float hauteur) {
         this.hauteur = hauteur;
     }
+
+
+    @Override
+    public String toString() {
+        return "ModeleBateau{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", marque='" + marque + '\'' +
+                ", modele='" + modele + '\'' +
+                ", annee=" + annee +
+                ", longueur=" + longueur +
+                ", largeur=" + largeur +
+                ", hauteur=" + hauteur +
+                '}';
+    }
 }

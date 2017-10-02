@@ -15,6 +15,7 @@ public class VuePrincipale extends Application
 	private BorderPane panneauPrincipale;
 	private PanneauAjouterItem panneauAjouterItem;
 	private PanneauSupprimerItem panneauSupprimerItem;
+	private Test test;
 	
 	@Override
 	public void start(Stage scenePrincipale)
@@ -23,6 +24,7 @@ public class VuePrincipale extends Application
 		
 		panneauHeader = new PanneauHeader();
 		panneauListe = new PanneauListe();
+		test = new Test();
 		
 		panneauPrincipale = new BorderPane();
 		

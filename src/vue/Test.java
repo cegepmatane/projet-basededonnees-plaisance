@@ -2,14 +2,11 @@ package vue;
 
 import controleur.ControleurVue;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -19,7 +16,7 @@ import modele.ModeleBateau;
 public class Test extends Application {
 
 
-    private ModeleBateau bateau;
+    private modele.ModeleBateau bateau;
 
     public static void main(String[] args) {
         launch(args);
@@ -66,12 +63,12 @@ public class Test extends Application {
                 new PropertyValueFactory<>("DUMMY")
         );
 
-        Callback<TableColumn<BateauDAO, String>, TableCell<BateauDAO, String>> cellFactory
+        Callback<TableColumn<ModeleBateau, String>, TableCell<ModeleBateau, String>> cellFactory
                 = //
-                new Callback<TableColumn<BateauDAO, String>, TableCell<BateauDAO, String>>() {
+                new Callback<TableColumn<ModeleBateau, String>, TableCell<ModeleBateau, String>>() {
                     @Override
-                    public TableCell call(final TableColumn<BateauDAO, String> param) {
-                        final TableCell<BateauDAO, String> cell = new TableCell<BateauDAO, String>() {
+                    public TableCell call(final TableColumn<ModeleBateau, String> param) {
+                        final TableCell<ModeleBateau, String> cell = new TableCell<ModeleBateau, String>() {
 
                             final Button btn = new Button("Ajouter");
 
@@ -83,9 +80,9 @@ public class Test extends Application {
                                     setText(null);
                                 } else {
                                     btn.setOnAction(event -> {
-                                        BateauDAO bateau = getTableView().getItems().get(getIndex());
-                                        System.out.println(bateau.getFirstName()
-                                                + "   " + bateau.getLastName());
+                                        //ControleurVue.getInstance().actionAjouterItem();
+                                         bateau = getTableView().getItems().get(getIndex());
+                                        System.out.println(bateau.toString());
                                     });
                                     setGraphic(btn);
                                     setText(null);
@@ -99,7 +96,7 @@ public class Test extends Application {
         actionCol.setCellFactory(cellFactory);
 
 
-        table.setItems(modele.BateauDAO.getInstance().recupererListeBateaux());
+        table.setItems(donnees.BateauDAO.getInstance().recupererListeBateaux());
         //table.getChildrenUnmodifiable().add(btnActionModifier);
 
         table.getColumns().addAll(nameCol, marqueCol, modeleCol, anneeCol, longueurCol, largeurCol, actionCol);

@@ -8,7 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
-import modele.BateauDAO;
+import donnees.BateauDAO;
 import modele.ModeleBateau;
 
 public class PanneauListe extends Region

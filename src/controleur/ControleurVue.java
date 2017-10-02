@@ -31,7 +31,8 @@ public class ControleurVue
 
 	public void actionAjouterItem() 
 	{
-		this.vuePrincipale.construirePanneauAjouterItem();
+		System.out.println(this.vuePrincipale);
+		vuePrincipale.construirePanneauAjouterItem();
 	}
 
 	public void actionSupprimerItem(ModeleBateau bateau)
