@@ -23,17 +23,19 @@ public class VuePrincipale extends Application
 		ControleurVue.getInstance().setVuePrincipale(this);
 		
 		panneauHeader = new PanneauHeader();
+		panneauHeader.setStyle("-fx-background-color: #003399");
 		panneauListe = new PanneauListe();
 		test = new Test();
 		
 		panneauPrincipale = new BorderPane();
 		
 		Scene scene = new Scene(panneauPrincipale, 400, 600);
+		scene.getStylesheets().add("Style.css");
 		
 		panneauHeader.setPrefSize(scene.getWidth(), 30);
-		panneauHeader.setStyle("-fx-background-color: #40A497");
+		panneauHeader.setStyle("-fx-background-color: #0698D7");
 		panneauListe.setPrefSize(scene.getWidth(), (scene.getHeight() - 30));
-		panneauListe.setStyle("-fx-background-color: #279385");
+		panneauListe.setStyle("-fx-background-color: #0698D7");
 		
 		panneauPrincipale.setPrefSize(scene.getWidth(), scene.getHeight());
 		panneauPrincipale.setTop(panneauHeader);

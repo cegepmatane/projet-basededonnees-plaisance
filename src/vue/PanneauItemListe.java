@@ -5,6 +5,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import modele.ModeleBateau;
@@ -40,6 +42,8 @@ public class PanneauItemListe extends Region
 		itemBoite.getChildren().add(labelAnnee);
 		
 		Button btnActionModifier = new Button("Modifier");
+		btnActionModifier.getStyleClass().add("custom-text");
+		btnActionModifier.setStyle("-fx-background-color: #003399");
 		btnActionModifier.setOnAction(new EventHandler<ActionEvent>() 
 		{
 			@Override
@@ -53,6 +57,8 @@ public class PanneauItemListe extends Region
 
 		//Bouton pour supprimer un bateau contenue dans la liste
 		Button btnActionSupprimer = new Button("Supprimer");
+		btnActionSupprimer.setStyle("-fx-background-color: #003399");
+		btnActionSupprimer.getStyleClass().add("custom-text");
 		btnActionSupprimer.setOnAction(new EventHandler<ActionEvent>()
 		{
 			@Override

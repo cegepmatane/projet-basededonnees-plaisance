@@ -37,6 +37,8 @@ public class PanneauModifierItem extends Region
 		grid.setHgap(10);
 		grid.setVgap(10);
 		grid.setPadding(new Insets(25, 25, 25, 25));
+		grid.setStyle("-fx-background-color: #0698D7");
+		this.setStyle("-fx-background-color: #0698D7");
 		
 		nomBateau = new TextField();
 		nomBateau.setText(this.bateau.getNom());
@@ -55,6 +57,8 @@ public class PanneauModifierItem extends Region
 		Label labelTitreModifierItem = new Label("Modifier");
 		
 		Button btnActionRetourEnArriere = new Button("Retour");
+		btnActionRetourEnArriere.setStyle("-fx-background-color: #003399");
+		btnActionRetourEnArriere.getStyleClass().add("custom-text");
 		btnActionRetourEnArriere.setOnAction(new EventHandler<ActionEvent>() 
 		{
 			@Override
@@ -65,6 +69,8 @@ public class PanneauModifierItem extends Region
 		});
 		
 		Button BtnActionSauvegardeeModification = new Button("Sauvegarde");
+		BtnActionSauvegardeeModification.setStyle("-fx-background-color: #003399");
+		BtnActionSauvegardeeModification.getStyleClass().add("custom-text");
 		BtnActionSauvegardeeModification.setOnAction(new EventHandler<ActionEvent>() 
 		{
 			@Override

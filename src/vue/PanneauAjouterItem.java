@@ -7,10 +7,14 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import donnees.BateauDAO;
 import modele.ModeleBateau;
+
+import java.io.FileInputStream;
 
 public class PanneauAjouterItem extends Region
 {
@@ -31,6 +35,8 @@ public class PanneauAjouterItem extends Region
 		grid.setHgap(10);
 		grid.setVgap(10);
 		grid.setPadding(new Insets(25, 25, 25, 25));
+		grid.setStyle("-fx-background-color: #0698D7");
+		this.setStyle("-fx-background-color: #0698D7");
 		
 		nomBateau = new TextField();
 		marqueBateau = new TextField();
@@ -42,6 +48,8 @@ public class PanneauAjouterItem extends Region
 		Label labelModele = new Label("Modele : ");
 		
 		Button btnActionRetourEnArriere = new Button("Retour");
+		btnActionRetourEnArriere.setStyle("-fx-background-color: #003399");
+		btnActionRetourEnArriere.getStyleClass().add("custom-text");
 		btnActionRetourEnArriere.setOnAction(new EventHandler<ActionEvent>() 
 		{
 			@Override
@@ -52,6 +60,8 @@ public class PanneauAjouterItem extends Region
 		});
 		
 		Button BtnActionSauvegardeeModification = new Button("Sauvegarder");
+		BtnActionSauvegardeeModification.setStyle("-fx-background-color: #003399");
+		BtnActionSauvegardeeModification.getStyleClass().add("custom-text");
 		BtnActionSauvegardeeModification.setOnAction(new EventHandler<ActionEvent>() 
 		{
 			@Override

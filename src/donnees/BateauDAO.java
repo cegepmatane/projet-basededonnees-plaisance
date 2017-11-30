@@ -17,7 +17,7 @@ public class BateauDAO {
     static final String DB_URL = "jdbc:mysql://localhost:3306/test?autoReconnect=true&useSSL=false"; //A changer selon table
 
     static final String USER = "root";
-    static final String PASS = "maxime";
+    static final String PASS = "";
 
     public static BateauDAO getInstance() {
         if (instance == null) instance = new BateauDAO();
