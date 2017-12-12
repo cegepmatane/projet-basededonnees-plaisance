@@ -1,5 +1,8 @@
 	package vue;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 import controleur.ControleurVue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -16,6 +19,9 @@ import modele.ModeleBateau;
 public class PanneauListe extends Region
 {
 	private ListView<PanneauItemListe> panneauListeItem;
+	
+	private ResourceBundle bundle;
+	private Locale locale;
 	
 	public PanneauListe()
 	{
@@ -35,6 +41,14 @@ public class PanneauListe extends Region
 		imageView.setFitHeight(100);
 		vBox.getChildren().add(imageView);
 		
+		
+		
+		
+		
+		
+		
+		
+		
 		Button btnActionAjouterItem = new Button("Ajouter");
 		btnActionAjouterItem.setStyle("-fx-background-color: #003399");
 		btnActionAjouterItem.getStyleClass().add("custom-text");
@@ -47,7 +61,40 @@ public class PanneauListe extends Region
 				ControleurVue.getInstance().actionAjouterItem();
 			}
 		});
+		
+		Button btnAnglais = new Button("Anglais");
+		btnAnglais.setStyle("-fx-background-color: #003399");
+		btnAnglais.getStyleClass().add("custom-text");
+		btnAnglais.setPrefSize(200, 15);
+		btnAnglais.setOnAction(new EventHandler<ActionEvent>() 
+		{
+			@Override
+			public void handle(ActionEvent event) 
+			{
+				locale = new Locale("en");
+				bundle = ResourceBundle.getBundle("donnees.lang", locale);
+				btnActionAjouterItem.setText(bundle.getString("btnAjouter"));
+			}
+		});
+		Button btnFrancais = new Button("Francais");
+		btnFrancais.setStyle("-fx-background-color: #003399");
+		btnFrancais.getStyleClass().add("custom-text");
+		btnFrancais.setPrefSize(200, 15);
+		btnFrancais.setOnAction(new EventHandler<ActionEvent>() 
+		{
+			@Override
+			public void handle(ActionEvent event) 
+			{
+				locale = new Locale("fr");
+				bundle = ResourceBundle.getBundle("donnees.lang", locale);
+				btnActionAjouterItem.setText(bundle.getString("btnAjouter"));
+			}
+		});
+		vBox.getChildren().add(btnFrancais);
+		vBox.getChildren().add(btnAnglais);
 		vBox.getChildren().add(btnActionAjouterItem);
+		
+
 
 
 		panneauListeItem = new ListView<PanneauItemListe>();

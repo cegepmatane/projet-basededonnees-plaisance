@@ -14,7 +14,7 @@ public class BateauDAO {
 
     private Connection conn;
     static final String JDBC_DRIVER = "org.gjt.mm.mysql.Driver"; //A changer selon driver
-    static final String DB_URL = "jdbc:mysql://localhost:3306/test?autoReconnect=true&useSSL=false"; //A changer selon table
+    static final String DB_URL = "jdbc:mysql://localhost:3306/portMatane"; //A changer selon table
 
     static final String USER = "root";
     static final String PASS = "";
